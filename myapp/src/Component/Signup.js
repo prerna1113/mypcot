@@ -14,7 +14,7 @@ function Signup() {
 
         try {
             
-            await axios.post("http://localhost:8000/",{
+            await axios.post("http://localhost:8000/signup",{
                 email,password
             })
 
@@ -33,10 +33,16 @@ function Signup() {
         <form action ="POST">
             <h1>signup</h1>
             <input type =  "email" onChange ={(e)=>{setEmail(e.target.value)}} placeholder =" Email" />
+            <br />
+            <br />
 
             <input  type = "password" onChange ={(e)=>{setPassword(e.target.value)}} placeholder ="Password"/>
+            <br />
+            <br />
 
             <input type = "text" onChange = {(e) =>{setText(e.target.value)}} placholder  = "Gender" />
+            <br />
+            <br />
             <input type = "submit" onClick = {submit} />
 
         </form>

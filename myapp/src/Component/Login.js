@@ -32,7 +32,11 @@ function Login() {
 
             <form action="POST">
                 <input type="email" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email" />
+                <br />
+                <br />
                 <input type="password" onChange={(e) => { setPassword(e.target.value) }} placeholder="Password" />
+                <br />
+                <br />
                 <input type="submit"  onClick={submit}/>
 
 
