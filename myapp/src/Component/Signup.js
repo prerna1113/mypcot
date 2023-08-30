@@ -5,6 +5,8 @@ import axios from 'axios'
 
 function Signup() {
 
+    const history = useNavigate();
+
     const [email , setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [text, setText] = useState('');
@@ -16,6 +18,18 @@ function Signup() {
             
             await axios.post("http://localhost:8000/signup",{
                 email,password
+            })
+            .then(res=>{
+                if(res.data === "exist"){
+                   alert("User already exists")
+                }
+                else if(res.data === "not exist"){
+                    history("/home")
+                }
+            })
+            .catch(e =>{
+                alert("wrong details")
+                console.log(e)
             })
 
 
