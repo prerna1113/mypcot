@@ -6,7 +6,9 @@ import Signup from './Signup'
 
 
 function Login() {
-    const [email,setEmail] = useState('')
+
+const history = useNavigate(); 
+   const [email,setEmail] = useState('')
     const [password , setPassword] = useState('')
 
     async function submit (e){
@@ -16,6 +18,21 @@ function Login() {
 
             await axios.post("http://localhost:8000/",{
                 email,password
+            })
+            .then(res =>{
+                if(res.data == "exist"){
+
+                    history("/home")
+                    
+
+                }
+                else if(res.data == "not exist"){
+                    alert(" User have not sign up")
+                }
+            })
+            .catch(e=>{
+                alert("wrong details")
+                console.log(e);
             })
 
         }
